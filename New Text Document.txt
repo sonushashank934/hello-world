@@ -1,0 +1,46 @@
+#include <stdio.h>
+
+#define MAX_USERS 3
+
+// Define user structure
+struct user {
+    int id;
+    char name[150];
+    float balance;
+};
+
+int main() {
+    struct user users[MAX_USERS];
+
+    // Input details for each user separately
+    for (int i = 0; i < MAX_USERS; i++) {
+        printf("\nEnter details of user %d:\n", i + 1);
+
+        // Ask for user ID
+        printf("Enter ID: ");
+        scanf("%d", &users[i].id);
+
+        // Clear the input buffer before reading name
+        getchar();  // This consumes the newline character left by scanf()
+
+        // Ask for user name
+        printf("Enter Name: ");
+        fgets(users[i].name, sizeof(users[i].name), stdin);  // Use fgets to read name with spaces
+
+        // Ask for user balance
+        printf("Enter Balance: ");
+        scanf("%f", &users[i].balance);
+    }
+
+    // Output stored user data
+    printf("\nStored User Data:\n");
+    for (int i = 0; i < MAX_USERS; i++) {
+        // Remove the newline character from name if present
+        users[i].name[strcspn(users[i].name, "\n")] = 0;
+
+        printf("User %d -> ID: %d, Name: %s, Balance: %.2f\n",
+               i + 1, users[i].id, users[i].name, users[i].balance);
+    }
+
+    return 0;
+}
