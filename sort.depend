@@ -1,0 +1,10 @@
+# depslib dependency file v1.0
+1741423791 source:d:\4vv22ec172\sort\sort.c
+
+1741425118 source:d:\4vv22ec172\sort\main.c
+	<stdio.h>
+
+1741425940 source:d:\4vv22ec172\sort\sortstring.c
+	<stdio.h>
+	<string.h>
+
